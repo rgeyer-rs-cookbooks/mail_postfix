@@ -34,6 +34,8 @@ if node['platform'] == 'centos'
   end
 
   if node['platform_version'].to_f >= 6.0
+    package "ssmtp"
+
     template '/etc/ssmtp/ssmtp.conf' do
       source 'ssmtp.conf.erb'
       mode 00644
