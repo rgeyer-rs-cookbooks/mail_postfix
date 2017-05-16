@@ -90,3 +90,15 @@ virtual_alias_maps = mysql:/etc/postfix/mysql-virtual.cf
 #smtpd_tls_session_cache_timeout = 3600s
 #tls_random_source = dev:/dev/urandom
 
+# Spam controls
+smtpd_helo_required = yes
+strict_rfc821_envelopes = yes
+disable_vrfy_command = yes
+smtpd_recipient_restrictions =
+        reject_invalid_hostname,
+        reject_non_fqdn_hostname,
+        reject_non_fqdn_recipient,
+        reject_unknown_sender_domain,
+        reject_unknown_recipient_domain,
+        reject_unauth_destination,
+        permit
